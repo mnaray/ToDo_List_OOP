@@ -28,7 +28,7 @@ namespace ToDo_List_OOP
                     break;
 
                 case "add todo":
-
+                    Program.AddTodo();
                     break;
 
                 default:

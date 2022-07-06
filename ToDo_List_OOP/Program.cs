@@ -18,6 +18,7 @@ namespace ToDo_List_OOP
             while (!exit)
             {
                 // Commandhandler checks for input and processes it
+                Console.Write("Enter command: ");
                 CommandHandler.Listen();
             }
 
@@ -60,26 +61,45 @@ namespace ToDo_List_OOP
             Console.WriteLine("print archive            list all archived todos");
             Console.WriteLine("save                     save the current state of your todo list locally");
             Console.WriteLine("---------------------------------------------------------------------------------------");
-            Console.Write("Enter your command here: ");
         }
 
         public static void AddTodo()
         {
             TodoItem todoItem = new TodoItem();
 
-            Console.Write("Enter the title of new todo here: ");
-            todoItem.title = Console.ReadLine();
-
-            Console.WriteLine("Enter the priority of your todo here: ");
             while (true)
             {
                 try
                 {
-                    foreach (var item in Enum.GetValues(typeof(TodoItem.priorityEnum)))
+                    Console.Write("Enter the title (max. 50 characters) of new todo here: ");
+                    todoItem.title = Console.ReadLine();
+
+                    if (todoItem.title.Length > TodoItem.maxTitleLength)
                     {
-                        Console.WriteLine(item);
+                        throw new Exception();
                     }
 
+                    break;
+                }
+                catch (Exception)
+                {
+                    ErrorHandler.Error(4);
+                }
+            }
+
+            Console.WriteLine("Enter the priority of your todo:\n");
+            while (true)
+            {
+                try
+                {
+                    int i = 0;
+                    foreach (var item in Enum.GetValues(typeof(TodoItem.priorityEnum)))
+                    {
+                        Console.WriteLine(i + ") " + item.ToString());
+                        i++;
+                    }
+
+                    Console.Write("Enter the number here: ");
                     todoItem.priority = Convert.ToInt32(Console.ReadLine());
                     if (!Enum.IsDefined(typeof(TodoItem.priorityEnum), todoItem.priority))
                     {
@@ -96,6 +116,7 @@ namespace ToDo_List_OOP
 
             // Adds new todo item to the list of todos
             Program.todoList.todoItemsList.Add(todoItem);
+            Console.WriteLine("Successfully added new todo.\n");
         }
     }
 }

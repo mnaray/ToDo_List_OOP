@@ -32,6 +32,10 @@ namespace ToDo_List_OOP
                     Console.WriteLine("Your input is out of the range of possible inputs.\n");
                     break;
 
+                case 4:
+                    Console.WriteLine("You input is too long. Keep the length under the limit.\n");
+                    break;
+
                 default:
                     Console.WriteLine("We don't know what went wrong.\n");
                     Program.ShortHelp();

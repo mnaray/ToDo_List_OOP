@@ -9,11 +9,7 @@ namespace ToDo_List_OOP
     [System.Serializable]
     class TodoList
     {
-        public List<TodoItem> todoItems
-        {
-            get;
-            set;
-        }
+        public List<TodoItem> todoItemsList = new List<TodoItem>();
 
 
         // Methods
