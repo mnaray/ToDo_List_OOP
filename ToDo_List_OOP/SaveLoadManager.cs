@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDo_List_OOP
 {
-    class List
+    class SaveLoadManager
     {
-        public static List<TodoItem> todoItems
-        {
-            get;
-            set;
-        }
     }
 }

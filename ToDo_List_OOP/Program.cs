@@ -18,6 +18,8 @@ namespace ToDo_List_OOP
                 CommandHandler.Listen();
             }
 
+            List.todoItems.Add();
+
 
             PressAnyKey();
         }
