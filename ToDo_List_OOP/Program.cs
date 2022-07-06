@@ -4,12 +4,12 @@ namespace ToDo_List_OOP
 {
     class Program
     {
-        // This boolean keeps the main loop running.
+        // Public variables
+        public static TodoList todoList = new TodoList();
         public static bool exit = false;
         static void Main(string[] args)
         {
             // Variables
-            TodoList todoList = new TodoList(); 
 
             // Main application
             Console.WriteLine("Welcome to the object oriented version of my todo list application.");
@@ -63,17 +63,39 @@ namespace ToDo_List_OOP
             Console.Write("Enter your command here: ");
         }
 
-        public static void AddTodo(TodoList list)
+        public static void AddTodo()
         {
             TodoItem todoItem = new TodoItem();
 
             Console.Write("Enter the title of new todo here: ");
             todoItem.title = Console.ReadLine();
 
+            Console.WriteLine("Enter the priority of your todo here: ");
+            while (true)
+            {
+                try
+                {
+                    foreach (var item in Enum.GetValues(typeof(TodoItem.priorityEnum)))
+                    {
+                        Console.WriteLine(item);
+                    }
 
+                    todoItem.priority = Convert.ToInt32(Console.ReadLine());
+                    if (!Enum.IsDefined(typeof(TodoItem.priorityEnum), todoItem.priority))
+                    {
+                        throw new Exception();
+                    }
+
+                    break;
+                }
+                catch (Exception)
+                {
+                    ErrorHandler.Error(3);
+                }
+            }
 
             // Adds new todo item to the list of todos
-            list.todoItems.Add(todoItem);
+            Program.todoList.todoItemsList.Add(todoItem);
         }
     }
 }

@@ -20,16 +20,20 @@ namespace ToDo_List_OOP
             switch (code)
             {
                 case 1:
-                    Console.WriteLine("There is no command like that, try something from the list of commands!");
+                    Console.WriteLine("There is no command like that, try something from the list of commands!\n");
                     Program.HelpMenu();
                     break;
 
                 case 2:
-                    Console.WriteLine("You can not enter an empty value here. Please try something else.");
+                    Console.WriteLine("You can not enter an empty value here. Please try something else.\n");
+                    break;
+
+                case 3:
+                    Console.WriteLine("Your input is out of the range of possible inputs.\n");
                     break;
 
                 default:
-                    Console.WriteLine("We don't know what went wrong.");
+                    Console.WriteLine("We don't know what went wrong.\n");
                     Program.ShortHelp();
                     break;
             }

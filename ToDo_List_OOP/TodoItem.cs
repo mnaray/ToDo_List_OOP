@@ -18,11 +18,14 @@ namespace ToDo_List_OOP
         // Maximal length of the title
         public static int maxTitleLength = 50;
 
-        public int priority
+        public enum priorityEnum
         {
-            get;
-            set;
+            None,
+            Important,
+            First_Priority
         }
+
+        public int priority;
 
         public enum status
         {
