@@ -12,8 +12,10 @@ namespace ToDo_List_OOP
             // Variables
 
             // Main application
-            Console.WriteLine("Welcome to the object oriented version of my todo list application.");
-            ShortHelp();
+            //Console.WriteLine("Welcome to the object oriented version of my todo list application.");
+            //ShortHelp();
+
+            Introduction();
 
             while (!exit)
             {
@@ -23,7 +25,7 @@ namespace ToDo_List_OOP
             }
 
 
-            PressAnyKey();
+            //PressAnyKey();
         }
 
 
@@ -52,6 +54,7 @@ namespace ToDo_List_OOP
             Console.WriteLine("---------------------------------------------------------------------------------------");
             Console.WriteLine("These are all the commands you can use in this version of the application:\n");
             Console.WriteLine("exit                     to close the application");
+            Console.WriteLine("clear                    clear the console, remove all text");
             Console.WriteLine("add todo                 add a new todo");
             Console.WriteLine("ls                       list all of your active todos, with ascending priority");
             Console.WriteLine("description              display the description of a todo");
@@ -60,7 +63,7 @@ namespace ToDo_List_OOP
             Console.WriteLine("edit                     display the editing menu");
             Console.WriteLine("print archive            list all archived todos");
             Console.WriteLine("save                     save the current state of your todo list locally");
-            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------------------------------------------\n");
         }
 
         public static void AddTodo()
@@ -71,7 +74,7 @@ namespace ToDo_List_OOP
             {
                 try
                 {
-                    Console.Write("Enter the title (max. 50 characters) of new todo here: ");
+                    Console.Write($"Enter the title (max. {TodoItem.maxTitleLength} characters) of new todo here: ");
                     todoItem.title = Console.ReadLine();
 
                     if (todoItem.title.Length > TodoItem.maxTitleLength)
@@ -99,7 +102,7 @@ namespace ToDo_List_OOP
                         i++;
                     }
 
-                    Console.Write("Enter the number here: ");
+                    Console.Write("Enter the number of the priority here: ");
                     todoItem.priority = Convert.ToInt32(Console.ReadLine());
                     if (!Enum.IsDefined(typeof(TodoItem.priorityEnum), todoItem.priority))
                     {
@@ -111,6 +114,27 @@ namespace ToDo_List_OOP
                 catch (Exception)
                 {
                     ErrorHandler.Error(3);
+                }
+            }
+
+            while (true)
+            {
+                try
+                {
+                    Console.Write($"Enter the description (max. {TodoItem.maxDescLength} characters) of your new todo: ");
+
+                    todoItem.description = Console.ReadLine();
+
+                    if (todoItem.description.Length > TodoItem.maxDescLength)
+                    {
+                        throw new Exception();
+                    }
+
+                    break;
+                }
+                catch (Exception)
+                {
+                    ErrorHandler.Error(4);
                 }
             }
 
