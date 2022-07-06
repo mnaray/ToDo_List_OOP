@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace ToDo_List_OOP
 {
-    class List
+    [System.Serializable]
+    class TodoList
     {
-        public static List<TodoItem> todoItems
+        public List<TodoItem> todoItems
         {
             get;
             set;
         }
+
+
+        // Methods
+
     }
 }

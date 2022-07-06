@@ -8,6 +8,9 @@ namespace ToDo_List_OOP
         public static bool exit = false;
         static void Main(string[] args)
         {
+            // Variables
+            TodoList todoList = new TodoList(); 
+
             // Main application
             Console.WriteLine("Welcome to the object oriented version of my todo list application.");
             ShortHelp();
@@ -17,8 +20,6 @@ namespace ToDo_List_OOP
                 // Commandhandler checks for input and processes it
                 CommandHandler.Listen();
             }
-
-            List.todoItems.Add();
 
 
             PressAnyKey();
@@ -50,7 +51,7 @@ namespace ToDo_List_OOP
             Console.WriteLine("---------------------------------------------------------------------------------------");
             Console.WriteLine("These are all the commands you can use in this version of the application:\n");
             Console.WriteLine("exit                     to close the application");
-            Console.WriteLine("new todo                 create new todo");
+            Console.WriteLine("add todo                 add a new todo");
             Console.WriteLine("ls                       list all of your active todos, with ascending priority");
             Console.WriteLine("description              display the description of a todo");
             Console.WriteLine("archive                  archive a todo after you're done with it");
@@ -60,6 +61,19 @@ namespace ToDo_List_OOP
             Console.WriteLine("save                     save the current state of your todo list locally");
             Console.WriteLine("---------------------------------------------------------------------------------------");
             Console.Write("Enter your command here: ");
+        }
+
+        public static void AddTodo(TodoList list)
+        {
+            TodoItem todoItem = new TodoItem();
+
+            Console.Write("Enter the title of new todo here: ");
+            todoItem.title = Console.ReadLine();
+
+
+
+            // Adds new todo item to the list of todos
+            list.todoItems.Add(todoItem);
         }
     }
 }

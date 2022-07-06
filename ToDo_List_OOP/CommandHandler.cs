@@ -27,6 +27,10 @@ namespace ToDo_List_OOP
                     Program.exit = true;
                     break;
 
+                case "add todo":
+
+                    break;
+
                 default:
                     ErrorHandler.Error(1);
                     break;
