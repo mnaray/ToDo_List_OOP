@@ -27,6 +27,10 @@ namespace ToDo_List_OOP
                     Program.exit = true;
                     break;
 
+                case "clear":
+                    Console.Clear();
+                    break;
+
                 case "add todo":
                     Program.AddTodo();
                     break;
