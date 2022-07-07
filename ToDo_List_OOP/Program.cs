@@ -14,16 +14,16 @@ namespace ToDo_List_OOP
 
             // Main application
 
-            for (int i = 0; i < 3; i++)
-            {
-                TodoItem todoItem = new TodoItem();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    TodoItem todoItem = new TodoItem();
 
-                todoItem.title = $"title {i}";
-                todoItem.priority = 0;
-                todoItem.description = $"This is a rather short description for {todoItem.title}.";
+            //    todoItem.title = $"title {i}";
+            //    todoItem.priority = 0;
+            //    todoItem.description = $"This is a rather short description for {todoItem.title}.";
 
-                todoList.todoItemsList.Add(todoItem);
-            }
+            //    todoList.todoItemsList.Add(todoItem);
+            //}
 
             Introduction();
 
@@ -174,6 +174,12 @@ namespace ToDo_List_OOP
                 bool foundTodo = false;
                 try
                 {
+                    if (todoList.todoItemsList.Count() < 1)
+                    {
+                        ErrorHandler.Error(5);
+                        break;
+                    }
+
                     Console.Write("Enter the name of the todo you would like to see the descrption of: ");
                     input = Console.ReadLine();
 
