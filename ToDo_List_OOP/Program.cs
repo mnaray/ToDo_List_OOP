@@ -102,7 +102,7 @@ namespace ToDo_List_OOP
                         i++;
                     }
 
-                    Console.Write("Enter the number of the priority here: ");
+                    Console.Write("\nEnter the number of the priority here: ");
                     todoItem.priority = Convert.ToInt32(Console.ReadLine());
                     if (!Enum.IsDefined(typeof(TodoItem.priorityEnum), todoItem.priority))
                     {
