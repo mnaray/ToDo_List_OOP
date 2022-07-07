@@ -20,8 +20,8 @@ namespace ToDo_List_OOP
             switch (code)
             {
                 case 1:
-                    Console.WriteLine("There is no command like that, try something from the list of commands!\n");
-                    Program.HelpMenu();
+                    Console.WriteLine("There is no command like that, try something from the list of commands!");
+                    Program.ShortHelp();
                     break;
 
                 case 2:
