@@ -39,6 +39,10 @@ namespace ToDo_List_OOP
                     Program.ListAll();
                     break;
 
+                case "description":
+                    Program.PrintDescription();
+                    break;
+
                 default:
                     ErrorHandler.Error(1);
                     break;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ToDo_List_OOP
 {
@@ -17,7 +18,7 @@ namespace ToDo_List_OOP
             {
                 TodoItem todoItem = new TodoItem();
 
-                todoItem.title = $"ToDo number {i}";
+                todoItem.title = $"title {i}";
                 todoItem.priority = 0;
                 todoItem.description = $"This is a rather short description for {todoItem.title}.";
 
@@ -160,9 +161,55 @@ namespace ToDo_List_OOP
                 Console.WriteLine(line);
                 Console.WriteLine($"Title:      {item.title}");
                 Console.WriteLine($"Priority:   {Enum.GetName(typeof(TodoItem.priorityEnum), item.priority)}");
-                Console.WriteLine($"Description {item.description}");
+                Console.WriteLine($"Description: {item.description}");
             }
             Console.WriteLine(line);
+        }
+
+        public static void PrintDescription()
+        {
+            while (true)
+            {
+                string input = "";
+                bool foundTodo = false;
+                try
+                {
+                    Console.Write("Enter the name of the todo you would like to see the descrption of: ");
+                    input = Console.ReadLine();
+
+                    TodoItem selectedTodo = new TodoItem();
+
+                    foreach (TodoItem item in todoList.todoItemsList)
+                    {
+                        if (item.title == input)
+                        {
+                            selectedTodo = item;
+                            foundTodo = true;
+                        }
+                    }
+
+                    if (foundTodo == false)
+                    {
+                        throw new Exception();
+                    }
+
+                    Console.WriteLine($"\nTitle: {selectedTodo.title}");
+                    Console.WriteLine($"Description:\n{selectedTodo.description}\n");
+
+                    break;
+                }
+                catch (Exception)
+                {
+                    if (input == "")
+                    {
+                        ErrorHandler.Error(2);
+                    }
+                    else
+                    {
+                        ErrorHandler.Error(3);
+                    }
+                }
+            }
         }
     }
 }
