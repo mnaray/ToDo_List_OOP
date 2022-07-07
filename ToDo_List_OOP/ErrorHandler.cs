@@ -36,6 +36,10 @@ namespace ToDo_List_OOP
                     Console.WriteLine("You input is too long. Keep the length under the limit.\n");
                     break;
 
+                case 5:
+                    Console.WriteLine("Not enough todos for this action.\n");
+                    break;
+
                 default:
                     Console.WriteLine("We don't know what went wrong.\n");
                     Program.ShortHelp();
