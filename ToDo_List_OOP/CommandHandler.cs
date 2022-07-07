@@ -35,6 +35,10 @@ namespace ToDo_List_OOP
                     Program.AddTodo();
                     break;
 
+                case "ls":
+                    Program.ListAll();
+                    break;
+
                 default:
                     ErrorHandler.Error(1);
                     break;

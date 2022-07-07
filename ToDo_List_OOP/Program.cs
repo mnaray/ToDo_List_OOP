@@ -9,11 +9,20 @@ namespace ToDo_List_OOP
         public static bool exit = false;
         static void Main(string[] args)
         {
-            // Variables
+            // Local variables
 
             // Main application
-            //Console.WriteLine("Welcome to the object oriented version of my todo list application.");
-            //ShortHelp();
+
+            for (int i = 0; i < 3; i++)
+            {
+                TodoItem todoItem = new TodoItem();
+
+                todoItem.title = $"ToDo number {i}";
+                todoItem.priority = 0;
+                todoItem.description = $"This is a rather short description for {todoItem.title}.";
+
+                todoList.todoItemsList.Add(todoItem);
+            }
 
             Introduction();
 
@@ -61,7 +70,7 @@ namespace ToDo_List_OOP
             Console.WriteLine("archive                  archive a todo after you're done with it");
             Console.WriteLine("rm                       remove a todo from the list (without archiving)");
             Console.WriteLine("edit                     display the editing menu");
-            Console.WriteLine("print archive            list all archived todos");
+            Console.WriteLine("ls archive            list all archived todos");
             Console.WriteLine("save                     save the current state of your todo list locally");
             Console.WriteLine("---------------------------------------------------------------------------------------\n");
         }
@@ -141,6 +150,19 @@ namespace ToDo_List_OOP
             // Adds new todo item to the list of todos
             Program.todoList.todoItemsList.Add(todoItem);
             Console.WriteLine("Successfully added new todo.\n");
+        }
+
+        public static void ListAll()
+        {
+            string line = "\n--------------------------------------\n";
+            foreach (TodoItem item in todoList.todoItemsList)
+            {
+                Console.WriteLine(line);
+                Console.WriteLine($"Title:      {item.title}");
+                Console.WriteLine($"Priority:   {Enum.GetName(typeof(TodoItem.priorityEnum), item.priority)}");
+                Console.WriteLine($"Description {item.description}");
+            }
+            Console.WriteLine(line);
         }
     }
 }
