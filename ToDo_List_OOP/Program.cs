@@ -59,6 +59,19 @@ namespace ToDo_List_OOP
             }
         }
 
+        public static bool CheckIfTitleExists(TodoList todoList, string titleToCheck)
+        {
+            foreach (TodoItem item in todoList.todoItemsList)
+            {
+                if (item.title == titleToCheck)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public static void Introduction()
         {
             Console.WriteLine("This application is to manage your list of things to do. " +
