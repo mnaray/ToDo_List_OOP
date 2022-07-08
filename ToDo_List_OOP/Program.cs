@@ -14,16 +14,16 @@ namespace ToDo_List_OOP
 
             // Main application
 
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    TodoItem todoItem = new TodoItem();
+            for (int i = 0; i < 3; i++)
+            {
+                TodoItem todoItem = new TodoItem();
 
-            //    todoItem.title = $"title {i}";
-            //    todoItem.priority = 0;
-            //    todoItem.description = $"This is a rather short description for {todoItem.title}.";
+                todoItem.title = $"title {i}";
+                todoItem.priority = 0;
+                todoItem.description = $"This is a rather short description for {todoItem.title}.";
 
-            //    todoList.todoItemsList.Add(todoItem);
-            //}
+                todoList.todoItemsList.Add(todoItem);
+            }
 
             Introduction();
 
@@ -201,6 +201,86 @@ namespace ToDo_List_OOP
 
                     Console.WriteLine($"\nTitle: {selectedTodo.title}");
                     Console.WriteLine($"Description:\n{selectedTodo.description}\n");
+
+                    break;
+                }
+                catch (Exception)
+                {
+                    if (input == "")
+                    {
+                        ErrorHandler.Error(2);
+                    }
+                    else
+                    {
+                        ErrorHandler.Error(3);
+                    }
+                }
+            }
+        }
+
+        public static void RemoveTodo()
+        {
+            while (true)
+            {
+                string input = "";
+                bool foundTodo = false;
+                try
+                {
+                    if (todoList.todoItemsList.Count() < 1)
+                    {
+                        ErrorHandler.Error(5);
+                        break;
+                    }
+
+                    Console.Write("Enter the title of the todo you would like to remove here: ");
+                    input = Console.ReadLine();
+
+                    TodoItem selectedTodo = new TodoItem();
+
+                    foreach (TodoItem item in todoList.todoItemsList)
+                    {
+                        if (item.title == input)
+                        {
+                            selectedTodo = item;
+                            foundTodo = true;
+                        }
+                    }
+
+                    if (foundTodo == false)
+                    {
+                        throw new Exception();
+                    }
+
+                    Console.Write("Are you sure you want to delete this todo forever? [y|n] : ");
+                    string confirmInput = Console.ReadLine();
+                    while (true)
+                    {
+                        try
+                        {
+                            switch (confirmInput)
+                            {
+                                case "y":
+                                case "yes":
+                                    todoList.todoItemsList.Remove(selectedTodo);
+                                    Console.WriteLine("Successfully removed todo.\n");
+                                    break;
+
+                                case "n":
+                                case "no":
+                                    Console.WriteLine("Did not remove todo.\n");
+                                    break;
+
+                                default:
+                                    throw new Exception();
+                            }
+
+                            break;
+                        }
+                        catch (Exception)
+                        {
+                            ErrorHandler.Error(3);
+                        }
+                    }
 
                     break;
                 }

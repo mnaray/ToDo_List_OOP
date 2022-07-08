@@ -43,6 +43,10 @@ namespace ToDo_List_OOP
                     Program.PrintDescription();
                     break;
 
+                case "rm":
+                    Program.RemoveTodo();
+                    break;
+
                 default:
                     ErrorHandler.Error(1);
                     break;
