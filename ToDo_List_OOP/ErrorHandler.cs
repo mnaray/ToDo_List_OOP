@@ -40,6 +40,10 @@ namespace ToDo_List_OOP
                     Console.WriteLine("Not enough todos for this action.\n");
                     break;
 
+                case 6:
+                    Console.WriteLine("This todo already exists.");
+                    break;
+
                 default:
                     Console.WriteLine("We don't know what went wrong.\n");
                     Program.ShortHelp();

@@ -108,6 +108,8 @@ namespace ToDo_List_OOP
 
             while (true)
             {
+                int errorCode = 0;
+
                 try
                 {
                     Console.Write($"Enter the title (max. {TodoItem.maxTitleLength} characters) of new todo here: ");
@@ -115,6 +117,17 @@ namespace ToDo_List_OOP
 
                     if (todoItem.title.Length > TodoItem.maxTitleLength)
                     {
+                        errorCode = 4;
+                        throw new Exception();
+                    }
+                    else if (CheckIfTitleExists(todoList, todoItem.title))
+                    {
+                        errorCode = 6;
+                        throw new Exception();
+                    }
+                    else if (todoItem.title == "")
+                    {
+                        errorCode = 2;
                         throw new Exception();
                     }
 
@@ -122,7 +135,7 @@ namespace ToDo_List_OOP
                 }
                 catch (Exception)
                 {
-                    ErrorHandler.Error(4);
+                    ErrorHandler.Error(errorCode);
                 }
             }
 
