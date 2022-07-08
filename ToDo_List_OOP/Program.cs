@@ -181,18 +181,12 @@ namespace ToDo_List_OOP
 
         public static void PrintDescription()
         {
-            while (true)
+            while (ConfirmMinLength(todoList))
             {
                 string input = "";
                 bool foundTodo = false;
                 try
                 {
-                    if (todoList.todoItemsList.Count() < 1)
-                    {
-                        ErrorHandler.Error(5);
-                        break;
-                    }
-
                     Console.Write("Enter the name of the todo you would like to see the descrption of: ");
                     input = Console.ReadLine();
 
@@ -233,18 +227,12 @@ namespace ToDo_List_OOP
 
         public static void RemoveTodo()
         {
-            while (true)
+            while (ConfirmMinLength(todoList))
             {
                 string input = "";
                 bool foundTodo = false;
                 try
                 {
-                    if (todoList.todoItemsList.Count() < 1)
-                    {
-                        ErrorHandler.Error(5);
-                        break;
-                    }
-
                     Console.Write("Enter the title of the todo you would like to remove here: ");
                     input = Console.ReadLine();
 
