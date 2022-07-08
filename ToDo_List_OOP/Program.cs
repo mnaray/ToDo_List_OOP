@@ -15,16 +15,16 @@ namespace ToDo_List_OOP
 
             // Main application
 
-            for (int i = 0; i < 3; i++)
-            {
-                TodoItem todoItem = new TodoItem();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    TodoItem todoItem = new TodoItem();
 
-                todoItem.title = $"title {i}";
-                todoItem.priority = 0;
-                todoItem.description = $"This is a rather short description for {todoItem.title}.";
+            //    todoItem.title = $"title {i}";
+            //    todoItem.priority = 0;
+            //    todoItem.description = $"This is a rather short description for {todoItem.title}.";
 
-                todoList.todoItemsList.Add(todoItem);
-            }
+            //    todoList.todoItemsList.Add(todoItem);
+            //}
 
             Introduction();
 
