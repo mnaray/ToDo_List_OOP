@@ -46,6 +46,19 @@ namespace ToDo_List_OOP
             Console.ReadKey();
         }
 
+        public static bool ConfirmMinLength(TodoList todoList)
+        {
+            if (todoList.todoItemsList.Count() < 1)
+            {
+                ErrorHandler.Error(5);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public static void Introduction()
         {
             Console.WriteLine("This application is to manage your list of things to do. " +
