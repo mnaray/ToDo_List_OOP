@@ -194,13 +194,13 @@ namespace ToDo_List_OOP
 
         public static void ListAll()
         {
-            string line = "\n--------------------------------------\n";
+            string line = "\n-----------------------------------------------------------------\n";
             foreach (TodoItem item in todoList.todoItemsList)
             {
                 Console.WriteLine(line);
-                Console.WriteLine($"Title:      {item.title}");
-                Console.WriteLine($"Priority:   {Enum.GetName(typeof(TodoItem.priorityEnum), item.priority)}");
-                Console.WriteLine($"Description: {item.description}");
+                Console.WriteLine($"Title:          {item.title}");
+                Console.WriteLine($"Priority:       {Enum.GetName(typeof(TodoItem.priorityEnum), item.priority)}");
+                Console.WriteLine($"Description:    {item.description}");
             }
             Console.WriteLine(line);
         }
