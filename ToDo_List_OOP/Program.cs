@@ -8,6 +8,7 @@ namespace ToDo_List_OOP
         // Public variables
         public static TodoList todoList = new TodoList();
         public static bool exit = false;
+        public static string version = "0.1.0";
         static void Main(string[] args)
         {
             // Local variables
@@ -88,13 +89,14 @@ namespace ToDo_List_OOP
         public static void HelpMenu()
         {
             Console.WriteLine("---------------------------------------------------------------------------------------");
-            Console.WriteLine("These are all the commands you can use in this version of the application:\n");
+            Console.WriteLine($"These are all the commands you can use in version {version} of the application:\n");
             Console.WriteLine("exit                     to close the application");
             Console.WriteLine("clear                    clear the console, remove all text");
             Console.WriteLine("add todo                 add a new todo");
             Console.WriteLine("ls                       list all of your active todos, with ascending priority");
             Console.WriteLine("description              display the description of a todo");
             Console.WriteLine("rm                       remove a todo from the list (without archiving)");
+            Console.WriteLine("-----------\nCommands coming soon:");
             Console.WriteLine("edit                     display the editing menu");
             Console.WriteLine("archive                  archive a todo after you're done with it");
             Console.WriteLine("ls archive               list all archived todos");
