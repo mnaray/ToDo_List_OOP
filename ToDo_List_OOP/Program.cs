@@ -68,10 +68,10 @@ namespace ToDo_List_OOP
             Console.WriteLine("add todo                 add a new todo");
             Console.WriteLine("ls                       list all of your active todos, with ascending priority");
             Console.WriteLine("description              display the description of a todo");
-            Console.WriteLine("archive                  archive a todo after you're done with it");
             Console.WriteLine("rm                       remove a todo from the list (without archiving)");
             Console.WriteLine("edit                     display the editing menu");
-            Console.WriteLine("ls archive            list all archived todos");
+            Console.WriteLine("archive                  archive a todo after you're done with it");
+            Console.WriteLine("ls archive               list all archived todos");
             Console.WriteLine("save                     save the current state of your todo list locally");
             Console.WriteLine("---------------------------------------------------------------------------------------\n");
         }
