@@ -47,6 +47,10 @@ namespace ToDo_List_OOP
                     Program.RemoveTodo();
                     break;
 
+                case "edit":
+                    Editor.Edit();
+                    break;
+
                 default:
                     ErrorHandler.Error(1);
                     break;
