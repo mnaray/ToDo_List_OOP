@@ -34,18 +34,10 @@ namespace ToDo_List_OOP
                 Console.Write("Enter command: ");
                 CommandHandler.Listen();
             }
-
-
-            //PressAnyKey();
         }
 
 
         // Methods and Functions
-        public static void PressAnyKey()
-        {
-            Console.WriteLine("Press any Key to continue . . .");
-            Console.ReadKey();
-        }
 
         public static bool ConfirmMinLength(TodoList todoList)
         {
