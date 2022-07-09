@@ -47,7 +47,6 @@ namespace ToDo_List_OOP
                         break;
 
                     default:
-                        ErrorHandler.Error(1);
                         break;
                 }
             }
@@ -63,6 +62,7 @@ namespace ToDo_List_OOP
 
                     case "exit":
                         Editor.editingModeOn = false;
+                        Console.Clear();
                         break;
 
                     default:
@@ -82,6 +82,7 @@ namespace ToDo_List_OOP
                     break;
 
                 default:
+                    ErrorHandler.Error(1);
                     break;
             }
 
