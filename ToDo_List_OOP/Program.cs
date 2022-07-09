@@ -52,7 +52,7 @@ namespace ToDo_List_OOP
             }
         }
 
-        public static bool CheckIfTitleExists(TodoList todoList, string titleToCheck)
+        public static bool CheckTitleExistance(TodoList todoList, string titleToCheck)
         {
             foreach (TodoItem item in todoList.todoItemsList)
             {
@@ -115,7 +115,7 @@ namespace ToDo_List_OOP
                         errorCode = 4;
                         throw new Exception();
                     }
-                    else if (CheckIfTitleExists(todoList, todoItem.title))
+                    else if (CheckTitleExistance(todoList, todoItem.title))
                     {
                         errorCode = 6;
                         throw new Exception();
