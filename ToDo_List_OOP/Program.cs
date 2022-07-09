@@ -85,7 +85,7 @@ namespace ToDo_List_OOP
             Console.WriteLine("exit                     to close the application");
             Console.WriteLine("clear                    clear the console, remove all text");
             Console.WriteLine("add todo                 add a new todo");
-            Console.WriteLine("ls                       list all of your active todos, with ascending priority");
+            Console.WriteLine("ls                       list all of your active todos, with descending priority");
             Console.WriteLine("description              display the description of a todo");
             Console.WriteLine("rm                       remove a todo from the list (without archiving)");
             Console.WriteLine("edit                     display the editing menu");
