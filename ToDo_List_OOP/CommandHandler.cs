@@ -16,6 +16,7 @@ namespace ToDo_List_OOP
         public static void Listen()
         {
             string input = Console.ReadLine();
+            bool commandNotFound = false;
 
             // commands for normal mode
             if (!Editor.editingModeOn)
@@ -47,6 +48,7 @@ namespace ToDo_List_OOP
                         break;
 
                     default:
+                        commandNotFound = true;
                         break;
                 }
             }
@@ -65,25 +67,33 @@ namespace ToDo_List_OOP
                         Console.Clear();
                         break;
 
+                    case "edit":
+                        Editor.EditTodo();
+                        break;
+
                     default:
+                        commandNotFound = true;
                         break;
                 }
             }
 
             // commands working in both modes
-            switch (input)
+            if (commandNotFound)
             {
-                case "ls":
-                    Program.ListAll();
-                    break;
+                switch (input)
+                {
+                    case "ls":
+                        Program.ListAll();
+                        break;
 
-                case "clear":
-                    Console.Clear();
-                    break;
+                    case "clear":
+                        Console.Clear();
+                        break;
 
-                default:
-                    ErrorHandler.Error(1);
-                    break;
+                    default:
+                        ErrorHandler.Error(1);
+                        break;
+                }
             }
 
         }
