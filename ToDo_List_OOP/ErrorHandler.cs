@@ -41,7 +41,7 @@ namespace ToDo_List_OOP
                     break;
 
                 case 6:
-                    Console.WriteLine("This todo already exists.");
+                    Console.WriteLine("This todo already exists.\n");
                     break;
 
                 default:
