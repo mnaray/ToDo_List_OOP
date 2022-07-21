@@ -18,7 +18,7 @@ namespace ToDo_List_OOP
             string input = Console.ReadLine();
             bool commandNotFound = false;
 
-            // commands for normal mode
+            // commands for normal mode only
             if (!Editor.editingModeOn)
             {
                 switch (input)
