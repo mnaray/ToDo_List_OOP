@@ -82,8 +82,6 @@ namespace ToDo_List_OOP
                         ErrorHandler.Error(3);
                     }
                 }
-
-
             }
         }
         static void EditTitle(TodoItem selectedTodo)
@@ -157,7 +155,40 @@ namespace ToDo_List_OOP
 
         static void EditDescription(TodoItem selectedTodo)
         {
-            
+            while (true)
+            {
+                string input = "";
+                try
+                {
+                    Console.Write($"\nCurrent description:\n{selectedTodo.description}\n");
+                    Console.Write($"\nNew description (leave empty to keep old one):\n");
+                    input = Console.ReadLine();
+
+                    if (input == "")
+                    {
+                        Console.WriteLine("Left description as it is.\n");
+                        break;
+                    }
+
+                    if (input.Length > TodoItem.maxDescLength)
+                    {
+                        throw new Exception();
+                    }
+
+                    selectedTodo.description = input;
+
+                    if (input != "")
+                    {
+                        Console.WriteLine("Successfully changed description.\n");
+                    }
+
+                    break;
+                }
+                catch (Exception)
+                {
+                    ErrorHandler.Error(4);
+                }
+            }
         }
     }
 }
