@@ -44,6 +44,7 @@ namespace ToDo_List_OOP
                         break;
 
                     case "editor":
+                        Console.Clear();
                         Editor.Edit();
                         break;
 
