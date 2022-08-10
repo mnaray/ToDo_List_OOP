@@ -189,6 +189,12 @@ namespace ToDo_List_OOP
 
         public static void ListAll()
         {
+            // sort list
+            todoList.todoItemsList.Sort((x, y) => y.priority.CompareTo(x.priority));
+
+
+
+            // print sorted list
             string line = "\n-----------------------------------------------------------------\n";
             foreach (TodoItem item in todoList.todoItemsList)
             {
